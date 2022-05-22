@@ -1,0 +1,20 @@
+{
+  "name": "parsed-query-utils",
+  "version": "0.0.0",
+  "description": "Provides functions to manipulate parsed url query object",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nextjs",
+    "url",
+    "utilities",
+    "utils"
+  ],
+  "author": "honey32",
+  "license": "MIT"
+}
