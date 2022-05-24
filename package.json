@@ -10,6 +10,8 @@
     "test": "tests"
   },
   "scripts": {
+    "prepare": "npm-run-all -s setup:*",
+    "setup:simple-git-hooks": "simple-git-hooks",
     "test": "jest",
     "watch": "parcel watch",
     "check": "tsc --noEmit",
@@ -18,6 +20,15 @@
     "lint:fix": "eslint \"src/**/*.ts\"",
     "format": "prettier --write \"src/**/*.ts\"",
     "ci": "npm-run-all -s format lint:fix build check"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "keywords": [
     "nextjs",
@@ -41,9 +52,11 @@
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "^6.0.0",
     "jest": "^28.1.0",
+    "lint-staged": "^12.4.1",
     "npm-run-all": "^4.1.5",
     "parcel": "^2.5.0",
     "prettier": "^2.6.2",
+    "simple-git-hooks": "^2.7.0",
     "ts-jest": "^28.0.2",
     "typescript": "^4.6.4"
   }
