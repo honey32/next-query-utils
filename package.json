@@ -19,7 +19,8 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\"",
     "format": "prettier --write \"src/**/*.ts\"",
-    "ci": "npm-run-all -s format lint:fix build check"
+    "ci": "npm-run-all -s format lint:fix build check",
+    "docs": "typedoc --includeVersion --out dist-doc src/index.ts"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
@@ -58,6 +59,7 @@
     "prettier": "^2.6.2",
     "simple-git-hooks": "^2.7.0",
     "ts-jest": "^28.0.2",
+    "typedoc": "^0.22.15",
     "typescript": "^4.6.4"
   }
 }
