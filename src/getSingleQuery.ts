@@ -20,7 +20,7 @@ import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
  *
  * @param pred *optional*. the first value *that fits this predicate* will be returned.
  */
-const getSingleQuery = (
+export const getSingleQuery = (
   key: string,
   pred: (s: string) => boolean = () => true
 ) => {
@@ -34,5 +34,3 @@ const getSingleQuery = (
     return pred(_value) ? _value : undefined;
   };
 };
-
-export default getSingleQuery;
