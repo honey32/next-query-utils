@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import getSingleQuery from "./getSingleQuery";
+import { getSingleQuery } from "./getSingleQuery";
 import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
 
 describe("getSingleQuery(key, pred)(query)", () => {

@@ -1,1 +1,1 @@
-export { default as getSingleQuery } from "./getSingleQuery";
+export { getSingleQuery } from "./getSingleQuery";
