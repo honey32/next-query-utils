@@ -23,6 +23,10 @@
     "ci": "npm-run-all -s format lint:fix build check",
     "docs": "typedoc --includeVersion --out dist-doc src/index.ts"
   },
+  "browserslist": [
+    "> 0.5% and not dead",
+    "IE 11"
+  ],
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
   },
