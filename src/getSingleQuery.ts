@@ -2,8 +2,23 @@ import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
 
 /**
  * Returns the first value for the specified *key* in the query object.
+ * If `pred` specified, returns the first value *that meets it*.
  *
- * @param pred if specified, returns the first value *that fits this predicate*. Defaults to "allow all"
+ * @example
+ * ```
+ * getSingleQuery("id")({}) === undefined
+ * getSingleQuery("id")({ id: "aaa" }) === "aaa"
+ *
+ * // with pred specified
+ * const is_a = (s: string) => s === "a"
+ * getSingleQuery("id", is_a)({ id: "a" }) === "a"
+ * getSingleQuery("id", is_a)({}) === undefined
+ * getSingleQuery("id", is_a)({ id: "b" }) === undefined
+ * getSingleQuery("id", is_a)({ id: ["a", "a"] }) === "a"
+ * getSingleQuery("id", is_a)({ id: ["b", "a"] }) === "a"
+ * ```
+ *
+ * @param pred *optional*. the first value *that fits this predicate* will be returned.
  */
 const getSingleQuery = (
   key: string,
