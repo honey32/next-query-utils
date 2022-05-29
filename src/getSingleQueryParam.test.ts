@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
-import { getSingleQuery } from "./getSingleQuery";
+import { getSingleQueryParam } from "./getSingleQueryParam";
 import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
 
-describe("getSingleQuery(key, pred)(query)", () => {
+describe("getSingleQueryParam(key, pred)(query)", () => {
   type Case = [
     pred: ((s: string) => boolean) | undefined,
     query: ParsedUrlQuery,
@@ -24,6 +24,6 @@ describe("getSingleQuery(key, pred)(query)", () => {
     [is_A, { key: ["b"] }, undefined],
     [is_A, { key: ["b", "c"] }, undefined],
   ])('("key", %p)(%j) === %s', (pred, query, result) => {
-    expect(getSingleQuery("key", pred)(query)).toEqual(result);
+    expect(getSingleQueryParam("key", pred)(query)).toEqual(result);
   });
 });

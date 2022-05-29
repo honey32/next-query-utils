@@ -1,1 +1,1 @@
-export { getSingleQuery } from "./getSingleQuery";
+export { getSingleQueryParam as getSingleQuery } from "./getSingleQueryParam";
