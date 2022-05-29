@@ -6,21 +6,21 @@ import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
  *
  * @example
  * ```
- * getSingleQuery("id")({}) === undefined
- * getSingleQuery("id")({ id: "aaa" }) === "aaa"
+ * getSingleQueryParam("id")({}) === undefined
+ * getSingleQueryParam("id")({ id: "aaa" }) === "aaa"
  *
  * // with pred specified
  * const is_a = (s: string) => s === "a"
- * getSingleQuery("id", is_a)({ id: "a" }) === "a"
- * getSingleQuery("id", is_a)({}) === undefined
- * getSingleQuery("id", is_a)({ id: "b" }) === undefined
- * getSingleQuery("id", is_a)({ id: ["a", "a"] }) === "a"
- * getSingleQuery("id", is_a)({ id: ["b", "a"] }) === "a"
+ * getSingleQueryParam("id", is_a)({ id: "a" }) === "a"
+ * getSingleQueryParam("id", is_a)({}) === undefined
+ * getSingleQueryParam("id", is_a)({ id: "b" }) === undefined
+ * getSingleQueryParam("id", is_a)({ id: ["a", "a"] }) === "a"
+ * getSingleQueryParam("id", is_a)({ id: ["b", "a"] }) === "a"
  * ```
  *
  * @param pred *optional*. the first value *that fits this predicate* will be returned.
  */
-export const getSingleQuery = (
+export const getSingleQueryParam = (
   key: string,
   pred: (s: string) => boolean = () => true
 ) => {
