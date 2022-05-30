@@ -1,4 +1,4 @@
-import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
+import { QueryMutation, queryMutation } from "./queryMutation";
 
 /**
  * By passing `({ key0: predicate0, key1: predicate1, ... })` style object,
@@ -40,8 +40,8 @@ import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
  */
 export const removeQueryParams = (
   options: Record<string, string | string[] | true | false | undefined | null>
-) => {
-  return (query: ParsedUrlQuery): ParsedUrlQuery =>
+): QueryMutation => {
+  return queryMutation((query) =>
     Object.entries(options).reduce((acc, [key, pred]) => {
       const value = acc[key];
 
@@ -56,7 +56,8 @@ export const removeQueryParams = (
 
       // if single string (not empty)
       return { ...acc, [key]: predFn(value) ? value : [] };
-    }, query);
+    }, query)
+  );
 };
 
 type RemovingPredicate = Parameters<typeof removeQueryParams>[0][string];
