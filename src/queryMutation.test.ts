@@ -6,7 +6,6 @@ describe("queryMutation()", () => {
     f0: (query: ParsedUrlQuery) => ParsedUrlQuery,
     f1: (query: ParsedUrlQuery) => ParsedUrlQuery,
     base: ParsedUrlQuery,
-
     result: ParsedUrlQuery
   ];
 
