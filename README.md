@@ -4,7 +4,7 @@ This library provides utility functions to deal with **Parsed Query Objects** (e
 
 ## Getting single value
 
-> `?id=aaa` -> `"aaa"`
+`?id=aaa` -> `"aaa"`
 
 ```ts
 
@@ -21,9 +21,8 @@ const id = getSingleQueryParam("id")(router.query)
 
 ## Remove some params
 
-> `?start_on=2022-03-02&item_type=stationary&item_type=book`
->
-> -> `?start_on=2022-03-02&item_type=stationary`
+`?start_on=2022-03-02&item_type=stationary&item_type=book`
+-> `?start_on=2022-03-02&item_type=stationary`
 
 ```ts
 // before
@@ -39,9 +38,8 @@ router.push(
 
 ## Keep some params from resetting
 
-> `?id=aaa&other=value&other2=value`
->
-> -> `?id=aaa`
+`?id=aaa&other=value&other2=value`
+-> `?id=aaa`
 
 ```ts
 // before
