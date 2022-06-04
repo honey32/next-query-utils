@@ -4,7 +4,7 @@ This library provides utility functions to deal with **Parsed Query Objects** (e
 
 ## Getting single value
 
-`?id=aaa` -> `"aaa"`
+`?id=aaa` or `?id=aaa&id=other` -> `"aaa"`
 
 ```ts
 
