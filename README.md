@@ -36,7 +36,7 @@ router.push(
 )
 ```
 
-## Keep some params from resetting
+## Keep some params from being reset
 
 `?id=aaa&other=value&other2=value`
 -> `?id=aaa`
