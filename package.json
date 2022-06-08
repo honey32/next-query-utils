@@ -9,7 +9,9 @@
   "directories": {
     "test": "tests"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepare": "npm-run-all -s setup:*",
     "setup:simple-git-hooks": "simple-git-hooks",
@@ -21,7 +23,7 @@
     "lint:fix": "eslint \"src/**/*.ts\"",
     "format": "prettier --write \"src/**/*.ts\"",
     "ci": "npm-run-all -s format lint:fix build check",
-    "docs": "typedoc --includeVersion --out dist-doc src/index.ts"
+    "docs": "typedoc --options typedoc.json"
   },
   "browserslist": [
     "> 0.5% and not dead",
@@ -44,6 +46,10 @@
   ],
   "author": "honey32",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:honey32/next-query-utils.git"
+  },
   "devDependencies": {
     "@parcel/packager-ts": "^2.5.0",
     "@parcel/transformer-typescript-types": "^2.5.0",
@@ -66,5 +72,8 @@
     "ts-jest": "^28.0.2",
     "typedoc": "^0.22.15",
     "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "@swc/helpers": "^0.3.17"
   }
 }

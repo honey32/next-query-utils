@@ -1,0 +1,66 @@
+@media (max-width: 640px) {
+  .container.container-main {
+    padding: 0 0;
+    padding-bottom: 32px;
+  }
+}
+
+body.light .tsd-panel {
+  box-shadow: none;
+  border-radius: 4px;
+  border: 1px solid var(--color-panel-divider);
+}
+
+.tsd-member {
+  padding-bottom: 40px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.tsd-parameters-title {
+  border-top: 1px solid var(--color-panel-divider);
+  border-bottom: 1px solid var(--color-panel-divider);
+  padding: 4px 0 8px;
+}
+
+
+ul.tsd-parameters,
+ul.tsd-type-parameters {
+  padding-left: 8px;
+}
+
+ul.tsd-descriptions h4 {
+  margin-top: 2em;
+}
+
+li.tsd-parameter-signature .tsd-returns-title {
+  margin-top: 1em;
+}
+
+ul.tsd-parameters>li.tsd-parameter-signature,
+ul.tsd-type-parameters>li.tsd-parameter-signature {
+  margin-left: -8px;
+}
+
+.tsd-returns-title+.tsd-parameters {
+  margin-left: 8px;
+}
+
+body.light>footer {
+  background-color: var(--color-background);
+}
+
+ul.tsd-parameters h5,
+.tsd-signature-type,
+.tsd-signature-symbol {
+  font-family: monospace;
+  font-style: normal;
+}
+
+.tsd-parameters h5,
+.tsd-returns-title {
+  padding-left: 1em;
+  text-indent: -1em;
+}
