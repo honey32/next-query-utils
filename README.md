@@ -13,7 +13,7 @@ This library provides utility functions to deal with **Parsed Query Objects** (e
 // const id = Array.isArray(id) ? id[0] : id
 
 // after
-const id = getSingleQueryParam("id")(router.query)
+const id = getSingleQueryParam(router.query, "id")
 ```
 
 
