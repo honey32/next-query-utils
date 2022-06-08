@@ -4,26 +4,26 @@ import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
 
 describe("getSingleQueryParam(key, pred)(query)", () => {
   type Case = [
-    pred: ((s: string) => boolean) | undefined,
     query: ParsedUrlQuery,
+    pred: ((s: string) => boolean) | undefined,
     result: string | undefined
   ];
 
   const is_A = (s: string): boolean => s === "a";
 
   it.each<Case>([
-    [undefined, { key: "a" }, "a"],
-    [undefined, { key: [] }, undefined],
-    [undefined, {}, undefined],
-    [is_A, { key: "a" }, "a"],
-    [is_A, { key: ["a"] }, "a"],
-    [is_A, { key: ["a", "b"] }, "a"],
-    [is_A, { key: ["b", "a"] }, "a"],
-    [is_A, {}, undefined],
-    [is_A, { key: "b" }, undefined],
-    [is_A, { key: ["b"] }, undefined],
-    [is_A, { key: ["b", "c"] }, undefined],
-  ])('("key", %p)(%j) === %s', (pred, query, result) => {
-    expect(getSingleQueryParam("key", pred)(query)).toEqual(result);
+    [{ key: "a" }, undefined, "a"],
+    [{ key: [] }, undefined, undefined],
+    [{}, undefined, undefined],
+    [{ key: "a" }, is_A, "a"],
+    [{ key: ["a"] }, is_A, "a"],
+    [{ key: ["a", "b"] }, is_A, "a"],
+    [{ key: ["b", "a"] }, is_A, "a"],
+    [{}, is_A, undefined],
+    [{ key: "b" }, is_A, undefined],
+    [{ key: ["b"] }, is_A, undefined],
+    [{ key: ["b", "c"] }, is_A, undefined],
+  ])('("key", %p)(%j) === %s', (query, pred, result) => {
+    expect(getSingleQueryParam(query, "key", pred)).toEqual(result);
   });
 });
