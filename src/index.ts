@@ -1,4 +1,4 @@
 export { getSingleQueryParam } from "./getSingleQueryParam";
+export { resetQuery, type ResetQueryOptions } from "./resetQuery";
 export { removeQueryParams } from "./removeQueryParams";
-export { QueryMutation, queryMutation } from "./queryMutation";
-export { resetQuery, ResetQueryOptions } from "./resetQuery";
+export { queryMutation, type QueryMutation } from "./queryMutation";
