@@ -2,6 +2,18 @@
 
 This library provides utility functions to deal with **Parsed Query Objects** (especially of Next.js)
 
+# Install
+
+```sh
+// with npm
+npm i next-query-utils
+
+// with yarn
+yarn add next-query-utils
+```
+
+# Usages
+
 ## Getting single value
 
 `?id=aaa` or `?id=aaa&id=other` -> `"aaa"`
@@ -9,8 +21,8 @@ This library provides utility functions to deal with **Parsed Query Objects** (e
 ```ts
 
 // before
-// const _id = router.query["id"]
-// const id = Array.isArray(id) ? id[0] : id
+const _id = router.query["id"]
+const id = Array.isArray(id) ? id[0] : id
 
 // after
 const id = getSingleQueryParam(router.query, "id")
@@ -43,8 +55,12 @@ router.push(
 
 ```ts
 // before
-// router.push({ id: router.query["id"] })
+router.push({ id: router.query["id"] })
 
 // after
 router.push(resetQuery({ ignore: "id" })(router.query))
 ```
+
+# License
+
+This library is licensed under the terms of [MIT License](/license)
