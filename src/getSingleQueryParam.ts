@@ -6,31 +6,29 @@ import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
  *
  * @example
  * ```
- * getSingleQueryParam("id")({}) === undefined
- * getSingleQueryParam("id")({ id: "aaa" }) === "aaa"
+ * getSingleQueryParam({},            "id") === undefined
+ * getSingleQueryParam({ id: "aaa" }, "id") === "aaa"
  *
  * // with pred specified
  * const is_a = (s: string) => s === "a"
- * getSingleQueryParam("id", is_a)({ id: "a" }) === "a"
- * getSingleQueryParam("id", is_a)({}) === undefined
- * getSingleQueryParam("id", is_a)({ id: "b" }) === undefined
- * getSingleQueryParam("id", is_a)({ id: ["a", "a"] }) === "a"
- * getSingleQueryParam("id", is_a)({ id: ["b", "a"] }) === "a"
+ * getSingleQueryParam({ id: "a" },        "id", is_a) === "a"
+ * getSingleQueryParam({},                 "id", is_a) === undefined
+ * getSingleQueryParam({ id: "b" },        "id", is_a) === undefined
+ * getSingleQueryParam({ id: ["b", "a"] }, "id", is_a) === "a"
  * ```
  *
  * @param pred *optional*. the first value *that fits this predicate* will be returned.
  */
 export const getSingleQueryParam = (
+  query: ParsedUrlQuery,
   key: string,
   pred: (s: string) => boolean = () => true
-) => {
-  return (query: ParsedUrlQuery): string | undefined => {
-    const _value = query[key];
+): string | undefined => {
+  const _value = query[key];
 
-    if (!_value) return undefined;
+  if (!_value) return undefined;
 
-    if (Array.isArray(_value)) return _value.filter(pred)[0];
+  if (Array.isArray(_value)) return _value.filter(pred)[0];
 
-    return pred(_value) ? _value : undefined;
-  };
+  return pred(_value) ? _value : undefined;
 };
