@@ -1,0 +1,29 @@
+# based on
+# https://github.com/suin/github-actions-playground/blob/typedoc-and-github-pages/.github/workflows/typedoc.yaml
+
+name: Deploy TypeDoc into GitHub Pages
+
+on: 
+  release:
+    types: [published]
+
+jobs:
+  typedoc:
+    name: TypeDoc
+    runs-on: ubuntu-latest # Ubuntuの最新版を実行環境とする
+    steps:
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v2
+      # https://github.com/actions/setup-node
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12' # Node 12を使う
+      - name: Dependencies
+        run: npm ci
+      - name: TypeDoc
+        run: npm run docs
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         publish_dir: ./dist-doc
