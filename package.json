@@ -22,7 +22,6 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\"",
     "format": "prettier --write \"src/**/*.ts\"",
-    "ci": "npm-run-all -s format lint:fix build check",
     "docs": "typedoc --options typedoc.json"
   },
   "browserslist": [
