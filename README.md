@@ -2,6 +2,10 @@
 
 This library provides utility functions to deal with **Parsed Query Objects** (especially of Next.js)
 
+## Links
+
+- [API Documentions](https://honey32.github.io/next-query-utils/)
+
 # Install
 
 ```sh
