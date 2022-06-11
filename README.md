@@ -2,6 +2,10 @@
 
 This library provides utility functions to deal with **Parsed Query Objects** (especially of Next.js)
 
+## Links
+
+- [API Documentions](https://honey32.github.io/next-query-utils/)
+
 # Install
 
 ```sh
@@ -38,6 +42,23 @@ const id = getSingleQueryParam(router.query, "id")
 
 ```ts
 // before
+const removeQuery = (
+  query: ParsedUrlQuery, 
+  key: string,
+  pred: string
+) => {
+  const value = query[key]
+  // if empty, leave query as it is.
+  if (!value) return query;
+  if (Array.isArray(value) && value.length === 0) return query;
+
+  // if array of string
+  if (Array.isArray(value))
+  return { ...acc, [key]: value.filter(s => s !== pred) };
+
+  // if single string (not empty)
+  return { ...acc, [key]: (s !== value) ? value : [] };
+}
 // I don't want to write such an annoying code any more.
 
 // after
