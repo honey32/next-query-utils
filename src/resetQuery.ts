@@ -1,16 +1,5 @@
 import { queryMutation } from "./queryMutation";
 
-export type ResetQueryOptions = {
-  /**
-   * keys not to delete.
-   * Falsy value in `ignore` array will be discarded.
-   */
-  ignore?:
-    | string
-    | (string | undefined | null | boolean | number)[]
-    | undefined;
-};
-
 /**
  * Resets the query (into empty object).
  *
@@ -26,7 +15,18 @@ export type ResetQueryOptions = {
  * resetQuery({ ignore: ["a", true, false, 0, null] })(query) // -> { a: "aaa" }
  * ```
  */
-export const resetQuery = (options: ResetQueryOptions = {}) => {
+export const resetQuery = (
+  options: {
+    /**
+     * keys not to delete.
+     * Falsy value or `true` will be discarded.
+     */
+    ignore?:
+      | string
+      | (string | undefined | null | boolean | number)[]
+      | undefined;
+  } = {}
+) => {
   const ignoredKeys = (() => {
     const { ignore } = options;
     if (!ignore) return [];
