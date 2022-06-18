@@ -50,13 +50,15 @@ const removeQuery = (
   pred: string
 ) => {
   const value = query[key]
+
   // if empty, leave query as it is.
   if (!value) return query;
-  if (Array.isArray(value) && value.length === 0) return query;
+  if (Array.isArray(value)) {
+    if(value.length === 0) return query;
 
-  // if array of string
-  if (Array.isArray(value))
-  return { ...acc, [key]: value.filter(s => s !== pred) };
+    // if non-empty array of string
+    return { ...acc, [key]: value.filter(s => s !== pred) };
+  }
 
   // if single string (not empty)
   return { ...acc, [key]: (s !== value) ? value : [] };
@@ -65,6 +67,8 @@ const removeQuery = (
 
 </div>
 </details>
+
+<hr/>
 
 ```ts
 // after
