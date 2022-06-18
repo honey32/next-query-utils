@@ -40,7 +40,9 @@ const id = getSingleQueryParam(router.query, "id")
 `?start_on=2022-03-02&item_type=stationary&item_type=book`
 -> `?start_on=2022-03-02&item_type=stationary`
 
-<details><summary>Before (I don't want to write such an annoying code any more.) </summary><div>
+### Before
+
+<details><summary>Code (I don't want to write such an annoying code any more.) </summary><div>
 
 ```ts
 // before
@@ -68,7 +70,7 @@ const removeQuery = (
 </div>
 </details>
 
-<hr/>
+### After
 
 ```ts
 // after
@@ -84,9 +86,7 @@ router.push(
 `/[postId]?other=value&other2=value`
 -> `/[postId]`
 
-In pages with [Next.js's dynamic routes](https://nextjs.org/docs/routing/dynamic-routes), `router.query` include them.
-
-(in this example, `router.query.postId`)
+In pages with [Next.js's dynamic routes](https://nextjs.org/docs/routing/dynamic-routes), `router.query` include them (in this example, `.postId`), so they **MUST be kept from resetting**.
 
 ```ts
 // before
@@ -101,7 +101,7 @@ router.push(resetQuery({ ignore: "postId" })(router.query))
 - *True* if `/items/[postId]`
 - *False* if `/items/[postId]?param1=aa`
 
-Likewise, if you want to check if query is empty, *with dynamic routes*, you should ignore them.
+Likewise, *with dynamic routes*, you need to ignore *them* in order to check if the query is empty.
 
 ```ts
 isQueryEmpty(router.query, { ignore: "postId" })
