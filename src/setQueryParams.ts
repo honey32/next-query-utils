@@ -1,10 +1,5 @@
 import { queryMutation } from "./queryMutation";
 
-type SetQueryParamsRHV = Record<
-  string,
-  string | string[] | undefined | null | 0 | false
->;
-
 /**
  * Sets values of query parameters.
  *
@@ -28,7 +23,9 @@ type SetQueryParamsRHV = Record<
  * setQueryParams({ a: null })(query) // -> { a: [] }
  * ```
  */
-export const setQueryParams = (params: SetQueryParamsRHV) => {
+export const setQueryParams = (
+  params: Record<string, string | string[] | undefined | null | 0 | false>
+) => {
   return queryMutation((query) =>
     Object.entries(params).reduce(
       (acc, [key, value]) => ({

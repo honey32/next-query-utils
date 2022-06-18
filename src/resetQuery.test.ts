@@ -1,9 +1,9 @@
-import { resetQuery, ResetQueryOptions } from "./resetQuery";
+import { resetQuery } from "./resetQuery";
 import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
 
 describe("resetQuery(options)(query)", () => {
   type Case = [
-    options: ResetQueryOptions,
+    options: Parameters<typeof resetQuery>[0],
     query: ParsedUrlQuery,
     result: ParsedUrlQuery
   ];
