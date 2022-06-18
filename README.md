@@ -50,7 +50,7 @@ const removeQuery = (
   pred: string
 ) => {
   const value = query[key]
-  
+
   // if empty, leave query as it is.
   if (!value) return query;
   if (Array.isArray(value)) {
@@ -67,6 +67,8 @@ const removeQuery = (
 
 </div>
 </details>
+
+<hr/>
 
 ```ts
 // after
