@@ -2,6 +2,10 @@
 
 This library provides utility functions to deal with **Parsed Query Objects** (especially of Next.js)
 
+## Links
+
+- [API Documentions](https://honey32.github.io/next-query-utils/)
+
 # Install
 
 ```sh
@@ -31,15 +35,44 @@ const id = getSingleQueryParam(router.query, "id")
 
 
 
-## Remove some params
+## Removing some params
 
 `?start_on=2022-03-02&item_type=stationary&item_type=book`
 -> `?start_on=2022-03-02&item_type=stationary`
 
+### Before
+
+<details><summary>Code (I don't want to write such an annoying code any more.) </summary><div>
+
 ```ts
 // before
-// I don't want to write such an annoying code any more.
+const removeQuery = (
+  query: ParsedUrlQuery, 
+  key: string,
+  pred: string
+) => {
+  const value = query[key]
 
+  // if empty, leave query as it is.
+  if (!value) return query;
+  if (Array.isArray(value)) {
+    if(value.length === 0) return query;
+
+    // if non-empty array of string
+    return { ...acc, [key]: value.filter(s => s !== pred) };
+  }
+
+  // if single string (not empty)
+  return { ...acc, [key]: (s !== value) ? value : [] };
+}
+```
+
+</div>
+</details>
+
+### After
+
+```ts
 // after
 router.push(
   removeQueryParam({ 
@@ -48,17 +81,30 @@ router.push(
 )
 ```
 
-## Keep some params from being reset
+## Keeping some params (or Next.js's dynamic routes) from being reset
 
-`?id=aaa&other=value&other2=value`
--> `?id=aaa`
+`/[postId]?other=value&other2=value`
+-> `/[postId]`
+
+In pages with [Next.js's dynamic routes](https://nextjs.org/docs/routing/dynamic-routes), `router.query` include them (in this example, `.postId`), so they **MUST be kept from resetting**.
 
 ```ts
 // before
-router.push({ id: router.query["id"] })
+router.push({ postId: router.query["postId"] })
 
 // after
-router.push(resetQuery({ ignore: "id" })(router.query))
+router.push(resetQuery({ ignore: "postId" })(router.query))
+```
+
+## Checking if query is empty ignoring some params (e.g. dynamic routes)
+
+- *True* if `/items/[postId]`
+- *False* if `/items/[postId]?param1=aa`
+
+Likewise, *with dynamic routes*, you need to ignore *them* in order to check if the query is empty.
+
+```ts
+isQueryEmpty(router.query, { ignore: "postId" })
 ```
 
 # License
