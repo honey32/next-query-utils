@@ -35,10 +35,12 @@ const id = getSingleQueryParam(router.query, "id")
 
 
 
-## Remove some params
+## Removing some params
 
 `?start_on=2022-03-02&item_type=stationary&item_type=book`
 -> `?start_on=2022-03-02&item_type=stationary`
+
+<details><summary>Before (I don't want to write such an annoying code any more.) </summary><div>
 
 ```ts
 // before
@@ -59,8 +61,12 @@ const removeQuery = (
   // if single string (not empty)
   return { ...acc, [key]: (s !== value) ? value : [] };
 }
-// I don't want to write such an annoying code any more.
+```
 
+</div>
+</details>
+
+```ts
 // after
 router.push(
   removeQueryParam({ 
@@ -69,17 +75,32 @@ router.push(
 )
 ```
 
-## Keep some params from being reset
+## Keeping some params (or Next.js's dynamic routes) from being reset
 
-`?id=aaa&other=value&other2=value`
--> `?id=aaa`
+`/[postId]?other=value&other2=value`
+-> `/[postId]`
+
+In pages with [Next.js's dynamic routes](https://nextjs.org/docs/routing/dynamic-routes), `router.query` include them.
+
+(in this example, `router.query.postId`)
 
 ```ts
 // before
-router.push({ id: router.query["id"] })
+router.push({ postId: router.query["postId"] })
 
 // after
-router.push(resetQuery({ ignore: "id" })(router.query))
+router.push(resetQuery({ ignore: "postId" })(router.query))
+```
+
+## Checking if query is empty ignoring some params (e.g. dynamic routes)
+
+- *True* if `/items/[postId]`
+- *False* if `/items/[postId]?param1=aa`
+
+Likewise, if you want to check if query is empty, *with dynamic routes*, you should ignore them.
+
+```ts
+isQueryEmpty(router.query, { ignore: "postId" })
 ```
 
 # License
