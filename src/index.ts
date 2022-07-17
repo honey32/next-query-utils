@@ -1,4 +1,5 @@
 export { filterQueryParams } from "./filterQueryParams";
+export { getMultipleQueryParams } from "./getMultipleQueryParams";
 export { getSingleQueryParam } from "./getSingleQueryParam";
 export { isQueryEmpty } from "./isQueryEmpty";
 export { resetQuery } from "./resetQuery";
