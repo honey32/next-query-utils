@@ -86,7 +86,9 @@ router.push(
 `/[postId]?other=value&other2=value`
 -> `/[postId]`
 
-In pages with [Next.js's dynamic routes](https://nextjs.org/docs/routing/dynamic-routes), `router.query` include them (in this example, `.postId`), so they **MUST be kept from resetting**.
+In pages with [Next.js's dynamic routes](https://nextjs.org/docs/routing/dynamic-routes), `router.query` include them (in this example, `.postId`). so they **MUST be kept from resetting**.
+
+In this case, use `resetQuery()` with `ignore` option. 
 
 ```ts
 // before
@@ -101,7 +103,9 @@ router.push(resetQuery({ ignore: "postId" })(router.query))
 - *True* if `/items/[postId]`
 - *False* if `/items/[postId]?param1=aa`
 
-Likewise, *with dynamic routes*, you need to ignore *them* in order to check if the query is empty.
+Likewise, you need to ignore *dynamic routes* in order to check if the query is empty.
+
+In this case, use `isQueryEmpty()` with `ignore` option. 
 
 ```ts
 isQueryEmpty(router.query, { ignore: "postId" })

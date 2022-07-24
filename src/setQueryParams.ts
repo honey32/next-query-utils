@@ -9,7 +9,7 @@ import { queryMutation } from "./queryMutation";
  *   ... resets the values for the key.
  * - *otherwise*
  *   ... replace old values for the key
- *       with them with the given value
+ *       with the given value
  *
  * @example
  * ```
