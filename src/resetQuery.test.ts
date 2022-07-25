@@ -9,7 +9,7 @@ describe("resetQuery(options)(query)", () => {
   ];
 
   it.each<Case>([
-    [{}, { a: "aaa" }, {}],
+    [{} /*       */, { a: "aaa" }, {}],
     [{ ignore: "" }, { a: "aaa" }, {}],
     [{ ignore: [] }, { a: "aaa" }, {}],
     [{ ignore: [false] }, { a: "aaa" }, {}],
