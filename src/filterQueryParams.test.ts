@@ -1,39 +1,37 @@
-/* eslint-disable camelcase */
 import { filterQueryParams } from "./filterQueryParams";
 import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
 
 describe("filterQueryParams(options)(query)", () => {
   type Case = [
-    key: string,
-    predicate: (s: string) => boolean,
     options: { limit?: number } | undefined,
     query: ParsedUrlQuery,
     result: ParsedUrlQuery
   ];
 
-  const all = () => true;
-  const endsWith_a = (s: string) => s.endsWith("a");
-
   it.each<Case>([
-    ["a", all, undefined, {}, {}],
-    ["a", all, undefined, { a: "aaa" }, { a: ["aaa"] }],
-    ["a", all, undefined, { a: ["aaa", "aab"] }, { a: ["aaa", "aab"] }],
-    ["a", all, { limit: 4 }, { a: ["aaa", "aab"] }, { a: ["aaa", "aab"] }],
-    ["a", all, { limit: 1 }, { a: ["aaa", "aab"] }, { a: ["aaa"] }],
-    ["a", endsWith_a, undefined, { a: ["aaa", "aab"] }, { a: ["aaa"] }],
-    ["a", endsWith_a, undefined, { a: ["aaa", "axa"] }, { a: ["aaa", "axa"] }],
-    [
-      "a",
-      endsWith_a,
-      { limit: 1 },
-      { a: ["aab", "axa", "aaa"] },
-      { a: ["axa"] },
-    ],
-  ])("(%s, %p, %p)(%p) === (%p)", (key, predicate, options, query, result) => {
-    expect(filterQueryParams(key, predicate, options)(query)).toStrictEqual(
+    [undefined, {} /*              */, {}],
+    [undefined, { a: "aaa" } /*    */, { a: ["aaa"] }],
+    [undefined, { a: ["aaa", "aab"] }, { a: ["aaa", "aab"] }],
+    [{ limit: 4 }, { a: ["aaa", "aab"] }, { a: ["aaa", "aab"] }],
+    [{ limit: 1 }, { a: ["aaa", "aab"] }, { a: ["aaa"] }],
+  ])("('a', () => true, %p)(%p) === (%p)", (options, query, result) => {
+    expect(filterQueryParams("a", () => true, options)(query)).toStrictEqual(
       result
     );
   });
+
+  it.each<Case>([
+    [undefined, { a: ["aaa", "axa"] }, { a: ["aaa", "axa"] }],
+    [undefined, { a: ["aaa", "aab"] }, { a: ["aaa"] }],
+    [{ limit: 1 }, { a: ["aab", "axa", "aaa"] }, { a: ["axa"] }],
+  ])(
+    "('a', (s) => s.endsWith('a'), %p)(%p) === (%p)",
+    (options, query, result) => {
+      expect(
+        filterQueryParams("a", (s) => s.endsWith("a"), options)(query)
+      ).toStrictEqual(result);
+    }
+  );
 
   it("testing the whole feature", () => {
     const query = {
@@ -45,7 +43,7 @@ describe("filterQueryParams(options)(query)", () => {
       b: "bbb",
     };
     expect(
-      filterQueryParams("a", endsWith_a, { limit: 1 })(query)
+      filterQueryParams("a", (s) => s.endsWith("a"), { limit: 1 })(query)
     ).toStrictEqual(result);
   });
 });

@@ -1,29 +1,29 @@
-/* eslint-disable camelcase */
 import { getMultipleQueryParams } from "./getMultipleQueryParams";
 import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
 
 describe("getMultipleQueryParams(key, pred)(query)", () => {
-  type Case = [
-    query: ParsedUrlQuery,
-    pred: ((s: string) => boolean) | undefined,
-    result: string[]
-  ];
-
-  const is_A = (s: string): boolean => s === "a";
+  type Case = [query: ParsedUrlQuery, result: string[]];
 
   it.each<Case>([
-    [{ key: "a" }, undefined, ["a"]],
-    [{ key: [] }, undefined, []],
-    [{}, undefined, []],
-    [{ key: "a" }, is_A, ["a"]],
-    [{ key: ["a"] }, is_A, ["a"]],
-    [{ key: ["a", "b"] }, is_A, ["a"]],
-    [{ key: ["b", "a"] }, is_A, ["a"]],
-    [{}, is_A, []],
-    [{ key: "b" }, is_A, []],
-    [{ key: ["b"] }, is_A, []],
-    [{ key: ["b", "c"] }, is_A, []],
-  ])('("key", %p)(%j) === %s', (query, pred, result) => {
-    expect(getMultipleQueryParams(query, "key", pred)).toEqual(result);
+    [{ key: "a" }, ["a"]],
+    [{ key: [] }, []],
+    [{} /*    */, []],
+  ])('(%p, "key") === %s', (query, result) => {
+    expect(getMultipleQueryParams(query, "key")).toEqual(result);
+  });
+
+  it.each<Case>([
+    [{ key: "a" }, ["a"]],
+    [{ key: ["a"] }, ["a"]],
+    [{ key: ["a", "b"] }, ["a"]],
+    [{ key: ["b", "a"] }, ["a"]],
+    [{} /*     */, []],
+    [{ key: "b" }, []],
+    [{ key: ["b"] }, []],
+    [{ key: ["b", "c"] }, []],
+  ])('(%p, "key", (s) => s === "a") === %s', (query, result) => {
+    expect(getMultipleQueryParams(query, "key", (s) => s === "a")).toEqual(
+      result
+    );
   });
 });
