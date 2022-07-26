@@ -4,6 +4,11 @@ import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
  * Returns the first value for the specified *key* in the query object.
  * If `pred` specified, returns the first value *that meets it*.
  *
+ * ---
+ *
+ * 返り値は、指定した `key` に対応するパラメータのうち最初の値。
+ * もし `pred` が指定されている場合は、**その関数に合格した**値のうち最初のものが返る。
+ *
  * @example
  * ```
  * getSingleQueryParam({},            "id") === undefined

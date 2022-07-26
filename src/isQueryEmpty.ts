@@ -6,6 +6,12 @@ import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
  *
  * If `ignore` option is specified, the keys will be ignored.
  *
+ * ---
+ *
+ * クエリが *空* であるかどうかの真偽値を返す。
+ * ただし、`undefined`, `""`, and `[]` があっても無視する。
+ *
+ * もし `ignore` オプションが指定されている場合、指定したキーの値があっても無視する。
  * @example
  * ```
  * isQueryPristine({}) // -> true

@@ -6,6 +6,11 @@ export type QueryMutation = ((query: ParsedUrlQuery) => ParsedUrlQuery) & {
 
 /**
  * Composes [[`QueryMutation`]] to enable function composition.
+ *
+ * ---
+ *
+ * 関数合成を可能にするため、[[`QueryMutation`]] を作成する。
+ *
  */
 export const queryMutation = (
   fn: (query: ParsedUrlQuery) => ParsedUrlQuery

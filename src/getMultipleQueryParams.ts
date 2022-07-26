@@ -1,8 +1,14 @@
 import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
 
 /**
+ *
  * Returns an array of the values for the specified *key* in the query object.
  * If `pred` specified, returns the values *that meet it*.
+ *
+ * ---
+ *
+ * 返り値は、指定した `key` に対応するパラメータの値の配列。
+ * もし `pred` が指定されている場合は、その関数によって返り値の配列が filter される。
  *
  * @example
  * ```
