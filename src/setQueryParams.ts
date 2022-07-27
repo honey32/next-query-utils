@@ -11,6 +11,17 @@ import { queryMutation } from "./queryMutation";
  *   ... replace old values for the key
  *       with the given value
  *
+ * ---
+ *
+ * クエリに値をセットします。
+ *
+ * `params` オブジェクトの各キーについて、
+ *
+ * - 値が *falsy* (偽値)の場合
+ *   ... そのキーの値をリセットします。
+ * - *それ以外の場合*
+ *   ... そのキーに対して、古い値は捨てて新しい値をセットします。
+ *
  * @example
  * ```
  * const query = { a: "aaa" }

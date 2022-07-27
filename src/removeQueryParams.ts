@@ -6,7 +6,17 @@ import { QueryMutation, queryMutation } from "./queryMutation";
  *
  * You can pass predicates from one of them;
  *
- * 1\. `true` &mdash; to remove all for the key
+ * ---
+ *
+ * `({ key0: 述語_0, key1: 述語_1, ... })` の形のオブジェクトを渡すことで
+ * それらの key に対応する値をクエリオブジェクトから取り除きます。
+ *
+ * 渡すことのできる *述語* は次の通り;
+ *
+ * ---
+ *
+ * 1\. `true` &mdash; to remove all for the key<br/>
+ * (すべての値を取り除く)
  *
  * ```
  * const query = { a: ["aaa", "abb"] }
@@ -14,7 +24,8 @@ import { QueryMutation, queryMutation } from "./queryMutation";
  * // -> { a: [] }
  * ```
  *
- * 2\. `false`, `undefined`, `null`, or `""` &mdash; **not** to remove anything for the key
+ * 2\. `false`, `undefined`, `null`, or `""` &mdash; **not** to remove anything for the key<br/>
+ * (なにも取り除かない)
  *
  * ```
  * const query = { a: ["aaa", "abb"] }
@@ -22,7 +33,8 @@ import { QueryMutation, queryMutation } from "./queryMutation";
  * // -> { a: ["aaa", "abb"] }
  * ```
  *
- * 3\. *single string* &mdash; to remove it
+ * 3\. *single string* &mdash; to remove it<br/>
+ * (その値を取り除く)
  *
  * ```
  * const query = { a: ["aaa", "abb"] }
@@ -30,7 +42,8 @@ import { QueryMutation, queryMutation } from "./queryMutation";
  * // -> { a: ["abb"] }
  * ```
  *
- * 4\. *array of string* &mdash; to remove all of them
+ * 4\. *array of string* &mdash; to remove all of them<br/>
+ * (全て取り除く)
  * ```
  * const query = { a: ["aaa", "abb", "acc"] }
  * removeQueryParams({ a: ["aaa", "abb"] })(query)

@@ -1,29 +1,27 @@
-/* eslint-disable camelcase */
 import { getSingleQueryParam } from "./getSingleQueryParam";
 import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
 
 describe("getSingleQueryParam(key, pred)(query)", () => {
-  type Case = [
-    query: ParsedUrlQuery,
-    pred: ((s: string) => boolean) | undefined,
-    result: string | undefined
-  ];
-
-  const is_A = (s: string): boolean => s === "a";
+  type Case = [query: ParsedUrlQuery, result: string | undefined];
 
   it.each<Case>([
-    [{ key: "a" }, undefined, "a"],
-    [{ key: [] }, undefined, undefined],
-    [{}, undefined, undefined],
-    [{ key: "a" }, is_A, "a"],
-    [{ key: ["a"] }, is_A, "a"],
-    [{ key: ["a", "b"] }, is_A, "a"],
-    [{ key: ["b", "a"] }, is_A, "a"],
-    [{}, is_A, undefined],
-    [{ key: "b" }, is_A, undefined],
-    [{ key: ["b"] }, is_A, undefined],
-    [{ key: ["b", "c"] }, is_A, undefined],
-  ])('("key", %p)(%j) === %s', (query, pred, result) => {
-    expect(getSingleQueryParam(query, "key", pred)).toEqual(result);
+    [{ key: "a" }, "a"],
+    [{ key: [] }, undefined],
+    [{}, undefined],
+  ])('(%p, "key") === %s', (query, result) => {
+    expect(getSingleQueryParam(query, "key")).toEqual(result);
+  });
+
+  it.each<Case>([
+    [{ key: "a" }, "a"],
+    [{ key: ["a"] }, "a"],
+    [{ key: ["a", "b"] }, "a"],
+    [{ key: ["b", "a"] }, "a"],
+    [{}, undefined],
+    [{ key: "b" }, undefined],
+    [{ key: ["b"] }, undefined],
+    [{ key: ["b", "c"] }, undefined],
+  ])('(%p, "key", (s) => s === "a") === %s', (query, result) => {
+    expect(getSingleQueryParam(query, "key", (s) => s === "a")).toEqual(result);
   });
 });

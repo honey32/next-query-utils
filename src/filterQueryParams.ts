@@ -5,6 +5,13 @@ import { queryMutation, QueryMutation } from "./queryMutation";
  * If `limit` option is specified, the excess values will be ommited.
  *
  * Other parameters remain as they were.
+ *
+ * ---
+ *
+ * 指定した `key` に対応するパラメータのうち、値が `pred` に合格するもの以外を取り除く。
+ * もし `limit` に数値が指定されている場合は、その数を超過した分を取り除く。
+ *
+ * それ以外の `key` についてはそのまま。
  * @example
  * ```
  * const query = {
