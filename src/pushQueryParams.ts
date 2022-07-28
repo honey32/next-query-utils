@@ -31,11 +31,7 @@ type ParamToAdd = Parameters<typeof pushQueryParams>[0][string];
 const safeConcat = (
   left: string | string[] | undefined,
   right: ParamToAdd
-): string[] => {
-  const leftArr = toFlatArray(left);
-  const rightArr = toFlatArray(right);
-  return [...leftArr, ...rightArr];
-};
+): string[] => [...toFlatArray(left), ...toFlatArray(right)];
 
 const toFlatArray = (v: ParamToAdd): string[] =>
   !v ? [] : typeof v === "string" ? [v] : v;
