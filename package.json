@@ -22,7 +22,8 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\"",
     "format": "prettier --write \"src/**/*.ts\"",
-    "docs": "typedoc --options typedoc.json"
+    "docs": "typedoc --options typedoc.json",
+    "prepack": "npm-run-all -s check build"
   },
   "browserslist": [
     "> 0.5% and not dead",
