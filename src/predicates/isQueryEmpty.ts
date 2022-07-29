@@ -1,4 +1,4 @@
-import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
+import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 /**
  * Returns true if the query is *empty* while
