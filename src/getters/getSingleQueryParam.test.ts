@@ -1,5 +1,5 @@
 import { getSingleQueryParam } from "./getSingleQueryParam";
-import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
+import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 describe("getSingleQueryParam(key, pred)(query)", () => {
   type Case = [query: ParsedUrlQuery, result: string | undefined];

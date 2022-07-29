@@ -1,5 +1,5 @@
 import { filterQueryParams } from "./filterQueryParams";
-import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
+import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 describe("filterQueryParams(options)(query)", () => {
   type Case = [
