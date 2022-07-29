@@ -1,5 +1,5 @@
 import { queryMutation } from "./queryMutation";
-import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
+import { ParsedUrlQuery } from "../../types/ParsedUrlQuery";
 
 describe("queryMutation()", () => {
   type Case = [

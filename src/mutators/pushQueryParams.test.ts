@@ -1,5 +1,5 @@
 import { pushQueryParams } from "./pushQueryParams";
-import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
+import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 describe("pushQueryParams(params)", () => {
   type Params = Parameters<typeof pushQueryParams>[0];

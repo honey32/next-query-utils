@@ -1,4 +1,4 @@
-import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
+import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 /**
  *

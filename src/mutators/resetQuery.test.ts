@@ -1,5 +1,5 @@
 import { resetQuery } from "./resetQuery";
-import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
+import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 describe("resetQuery(options)(query)", () => {
   type Case = [

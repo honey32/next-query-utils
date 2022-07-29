@@ -1,4 +1,4 @@
-import { ParsedUrlQuery } from "./types/ParsedUrlQuery";
+import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 /**
  * Returns the first value for the specified *key* in the query object.
