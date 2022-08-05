@@ -1,5 +1,8 @@
 # Next Query Utils
 
+[![npm version](https://badge.fury.io/js/next-query-utils.svg)](https://badge.fury.io/js/next-query-utils)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 This library provides utility functions to deal with **Parsed Query Objects** (especially of Next.js)
 
 このライブラリには、**Parsed Query Object** （特に Next.js のもの）を取り扱うためのユーティリティ関数群が含まれます。
