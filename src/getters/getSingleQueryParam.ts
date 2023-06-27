@@ -1,5 +1,17 @@
 import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
+export function getSingleQueryParam<T extends string>(
+  query: ParsedUrlQuery,
+  key: string,
+  pred?: (s: string) => s is T
+): T | undefined;
+// eslint-disable-next-line no-redeclare
+export function getSingleQueryParam<T extends string>(
+  query: ParsedUrlQuery,
+  key: string,
+  pred?: (s: string) => boolean
+): T | undefined;
+
 /**
  * Returns the first value for the specified *key* in the query object.
  * If `pred` specified, returns the first value *that meets it*.
@@ -24,11 +36,12 @@ import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
  *
  * @param pred *optional*. the first value *that fits this predicate* will be returned.
  */
-export const getSingleQueryParam = (
+// eslint-disable-next-line no-redeclare
+export function getSingleQueryParam(
   query: ParsedUrlQuery,
   key: string,
   pred: (s: string) => boolean = () => true
-): string | undefined => {
+): string | undefined {
   const _value = query[key];
 
   if (!_value) return undefined;
@@ -36,4 +49,4 @@ export const getSingleQueryParam = (
   if (Array.isArray(_value)) return _value.filter(pred)[0];
 
   return pred(_value) ? _value : undefined;
-};
+}
