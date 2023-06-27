@@ -24,8 +24,8 @@ describe("getSingleQueryParam(key, pred)(query)", () => {
   ])('(%p, "key", (s) => s === "a") === %s', (query, result) => {
     expect(getSingleQueryParam(query, "key", (s) => s === "a")).toEqual(result);
 
-    // strictly typed as "a" | undefined
-    expect(
+    // strictly typed
+    expect<"a" | undefined>(
       getSingleQueryParam(query, "key", (s): s is "a" => s === "a")
     ).toEqual(result);
   });
