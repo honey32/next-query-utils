@@ -19,5 +19,8 @@ module.exports = {
     'jest'
   ],
   rules: {
+    // workaround: to allow overload. 
+    // TODO: re-write for typescript
+    'no-redeclare': 'off',
   }
 }

@@ -5,7 +5,6 @@ export function getSingleQueryParam<T extends string>(
   key: string,
   pred?: (s: string) => s is T
 ): T | undefined;
-// eslint-disable-next-line no-redeclare
 export function getSingleQueryParam<T extends string>(
   query: ParsedUrlQuery,
   key: string,
@@ -36,7 +35,6 @@ export function getSingleQueryParam<T extends string>(
  *
  * @param pred *optional*. the first value *that fits this predicate* will be returned.
  */
-// eslint-disable-next-line no-redeclare
 export function getSingleQueryParam(
   query: ParsedUrlQuery,
   key: string,

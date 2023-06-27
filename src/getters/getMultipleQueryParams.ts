@@ -5,7 +5,6 @@ export function getMultipleQueryParams<T extends string>(
   key: string,
   pred?: (s: string) => s is T
 ): T[];
-// eslint-disable-next-line no-redeclare
 export function getMultipleQueryParams(
   query: ParsedUrlQuery,
   key: string,
@@ -37,7 +36,6 @@ export function getMultipleQueryParams(
  *
  * @param pred *optional*. the values *that fit this predicate* will be returned.
  */
-// eslint-disable-next-line no-redeclare
 export function getMultipleQueryParams(
   query: ParsedUrlQuery,
   key: string,
