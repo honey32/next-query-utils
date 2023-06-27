@@ -25,5 +25,10 @@ describe("getMultipleQueryParams(key, pred)(query)", () => {
     expect(getMultipleQueryParams(query, "key", (s) => s === "a")).toEqual(
       result
     );
+
+    // strictly typed
+    expect<"a"[]>(
+      getMultipleQueryParams(query, "key", (s): s is "a" => s === "a")
+    ).toEqual(result);
   });
 });
