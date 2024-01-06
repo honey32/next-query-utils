@@ -25,7 +25,7 @@ import { queryMutation, QueryMutation } from "./_internal/queryMutation";
 export const filterQueryParams = (
   key: string,
   pred: (s: string) => boolean,
-  options: { limit?: number } = {}
+  options: { limit?: number } = {},
 ): QueryMutation => {
   const { limit = undefined } = options;
 

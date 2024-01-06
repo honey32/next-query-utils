@@ -5,7 +5,7 @@ describe("resetQuery(options)(query)", () => {
   type Case = [
     options: Parameters<typeof resetQuery>[0],
     query: ParsedUrlQuery,
-    result: ParsedUrlQuery
+    result: ParsedUrlQuery,
   ];
 
   it.each<Case>([

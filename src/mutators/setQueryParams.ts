@@ -35,7 +35,7 @@ import { queryMutation } from "./_internal/queryMutation";
  * ```
  */
 export const setQueryParams = (
-  params: Record<string, string | string[] | undefined | null | 0 | false>
+  params: Record<string, string | string[] | undefined | null | 0 | false>,
 ) => {
   return queryMutation((query) =>
     Object.entries(params).reduce(
@@ -43,7 +43,7 @@ export const setQueryParams = (
         ...acc,
         [key]: !value ? [] : value,
       }),
-      query
-    )
+      query,
+    ),
   );
 };

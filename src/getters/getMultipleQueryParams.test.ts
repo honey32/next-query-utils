@@ -23,12 +23,12 @@ describe("getMultipleQueryParams(key, pred)(query)", () => {
     [{ key: ["b", "c"] }, []],
   ])('(%p, "key", (s) => s === "a") === %s', (query, result) => {
     expect(getMultipleQueryParams(query, "key", (s) => s === "a")).toEqual(
-      result
+      result,
     );
 
     // strictly typed
     expect<"a"[]>(
-      getMultipleQueryParams(query, "key", (s): s is "a" => s === "a")
+      getMultipleQueryParams(query, "key", (s): s is "a" => s === "a"),
     ).toEqual(result);
   });
 });

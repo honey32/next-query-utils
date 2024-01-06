@@ -13,7 +13,7 @@ export type QueryMutation = ((query: ParsedUrlQuery) => ParsedUrlQuery) & {
  *
  */
 export const queryMutation = (
-  fn: (query: ParsedUrlQuery) => ParsedUrlQuery
+  fn: (query: ParsedUrlQuery) => ParsedUrlQuery,
 ): QueryMutation => {
   type AndThen = Pick<QueryMutation, "andThen">;
 
