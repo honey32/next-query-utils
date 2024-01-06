@@ -39,7 +39,7 @@ jobs:
         id: npm-version
         run: |
           version=$(npm version ${{ inputs.version }} --no-git-tag-version)
-          echo"version=$version" >> $GITHUB_OUTPUT
+          echo "version=$version" >> $GITHUB_OUTPUT
 
       - name: commit
         run: |
