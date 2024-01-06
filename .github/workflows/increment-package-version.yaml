@@ -38,8 +38,8 @@ jobs:
       - name: npm version
         id: npm-version
         run: |
-          npm version ${{ inputs.version }} --no-git-tag-version
-          version=$(grep version package.json | awk -F \" '{print $4}') >> $GITHUB_OUTPUT
+          version=$(npm version ${{ inputs.version }} --no-git-tag-version)
+          echo"version=$version" >> $GITHUB_OUTPUT
 
       - name: commit
         run: |
