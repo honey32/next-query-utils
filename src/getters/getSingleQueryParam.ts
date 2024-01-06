@@ -5,11 +5,11 @@ export function getSingleQueryParam<T extends string>(
   key: string,
   pred?: (s: string) => s is T,
 ): T | undefined;
-export function getSingleQueryParam<T extends string>(
+export function getSingleQueryParam(
   query: ParsedUrlQuery,
   key: string,
   pred?: (s: string) => boolean,
-): T | undefined;
+): string | undefined;
 
 /**
  * Returns the first value for the specified *key* in the query object.
