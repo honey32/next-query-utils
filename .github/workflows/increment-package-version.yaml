@@ -50,3 +50,4 @@ jobs:
         uses: peter-evans/create-pull-request@5ac05dbaf3e4c655ed87f1cbba980b9e5c490504
         with:
           title: npm version -> ${{steps.npm-version.outputs.version}}
+          branch: chore/npm_version/${{steps.npm-version.outputs.version}}
