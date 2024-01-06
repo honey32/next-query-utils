@@ -44,9 +44,9 @@ jobs:
       - name: commit
         run: |
           git add .
-          git commit -m "v${{steps.npm-version.outputs.version}}"
+          git commit -m "${{steps.npm-version.outputs.version}}"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5ac05dbaf3e4c655ed87f1cbba980b9e5c490504
         with:
-          title: npm version -> v${{steps.npm-version.outputs.version}}
+          title: npm version -> ${{steps.npm-version.outputs.version}}
