@@ -14,14 +14,14 @@ updates:
         patterns:
         - eslint
         - eslint-*
-        - @typescript-eslint*
+        - '@typescript-eslint*'
       jest:
         patterns:
         - jest
-        - @types/jest
+        - '@types/jest'
         - ts-jest
       parcel:
         patterns:
         - parcel
-        - @parcel/*
+        - '@parcel/*'
 
