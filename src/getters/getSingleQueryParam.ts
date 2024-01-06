@@ -3,12 +3,12 @@ import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 export function getSingleQueryParam<T extends string>(
   query: ParsedUrlQuery,
   key: string,
-  pred?: (s: string) => s is T
+  pred?: (s: string) => s is T,
 ): T | undefined;
 export function getSingleQueryParam<T extends string>(
   query: ParsedUrlQuery,
   key: string,
-  pred?: (s: string) => boolean
+  pred?: (s: string) => boolean,
 ): T | undefined;
 
 /**
@@ -38,7 +38,7 @@ export function getSingleQueryParam<T extends string>(
 export function getSingleQueryParam(
   query: ParsedUrlQuery,
   key: string,
-  pred: (s: string) => boolean = () => true
+  pred: (s: string) => boolean = () => true,
 ): string | undefined {
   const _value = query[key];
 

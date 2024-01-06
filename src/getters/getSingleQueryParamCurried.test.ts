@@ -10,7 +10,7 @@ describe("getSingleQueryParamCurried(key, pred)(query)", () => {
     (query) => {
       const getKey = getSingleQueryParamCurried("key");
       expect(getKey(query)).toEqual(getSingleQueryParam(query, "key"));
-    }
+    },
   );
 
   it.each<Case>([
@@ -33,6 +33,6 @@ describe("getSingleQueryParamCurried(key, pred)(query)", () => {
       const isA = (s: string): s is "a" => s === "a";
       const getKeyStrict = getSingleQueryParamCurried("key", isA);
       expect<"a" | undefined>(getKeyStrict(query)).toEqual(result);
-    }
+    },
   );
 });

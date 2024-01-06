@@ -5,7 +5,7 @@ describe("filterQueryParams(options)(query)", () => {
   type Case = [
     options: { limit?: number } | undefined,
     query: ParsedUrlQuery,
-    result: ParsedUrlQuery
+    result: ParsedUrlQuery,
   ];
 
   it.each<Case>([
@@ -16,7 +16,7 @@ describe("filterQueryParams(options)(query)", () => {
     [{ limit: 1 }, { a: ["aaa", "aab"] }, { a: ["aaa"] }],
   ])("('a', () => true, %p)(%p) === (%p)", (options, query, result) => {
     expect(filterQueryParams("a", () => true, options)(query)).toStrictEqual(
-      result
+      result,
     );
   });
 
@@ -28,9 +28,9 @@ describe("filterQueryParams(options)(query)", () => {
     "('a', (s) => s.endsWith('a'), %p)(%p) === (%p)",
     (options, query, result) => {
       expect(
-        filterQueryParams("a", (s) => s.endsWith("a"), options)(query)
+        filterQueryParams("a", (s) => s.endsWith("a"), options)(query),
       ).toStrictEqual(result);
-    }
+    },
   );
 
   it("testing the whole feature", () => {
@@ -43,7 +43,7 @@ describe("filterQueryParams(options)(query)", () => {
       b: "bbb",
     };
     expect(
-      filterQueryParams("a", (s) => s.endsWith("a"), { limit: 1 })(query)
+      filterQueryParams("a", (s) => s.endsWith("a"), { limit: 1 })(query),
     ).toStrictEqual(result);
   });
 });

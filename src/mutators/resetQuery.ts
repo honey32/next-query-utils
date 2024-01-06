@@ -32,7 +32,7 @@ export const resetQuery = (
       | string
       | (string | undefined | null | boolean | number)[]
       | undefined;
-  } = {}
+  } = {},
 ) => {
   const ignoredKeys = (() => {
     const { ignore } = options;

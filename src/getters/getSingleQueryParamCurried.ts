@@ -3,12 +3,12 @@ import { getSingleQueryParam } from "./getSingleQueryParam";
 
 export function getSingleQueryParamCurried<T extends string>(
   key: string,
-  pred: (s: string) => s is T
+  pred: (s: string) => s is T,
 ): (query: ParsedUrlQuery) => T | undefined;
 
 export function getSingleQueryParamCurried(
   key: string,
-  pred?: (s: string) => boolean
+  pred?: (s: string) => boolean,
 ): (query: ParsedUrlQuery) => string | undefined;
 
 /**
@@ -22,7 +22,7 @@ export function getSingleQueryParamCurried(
  */
 export function getSingleQueryParamCurried(
   key: string,
-  pred?: (s: string) => boolean
+  pred?: (s: string) => boolean,
 ): (query: ParsedUrlQuery) => string | undefined {
   return (query) => getSingleQueryParam(query, key, pred);
 }
