@@ -3,12 +3,12 @@ import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 export function getMultipleQueryParams<T extends string>(
   query: ParsedUrlQuery,
   key: string,
-  pred?: (s: string) => s is T
+  pred?: (s: string) => s is T,
 ): T[];
 export function getMultipleQueryParams(
   query: ParsedUrlQuery,
   key: string,
-  pred?: (s: string) => boolean
+  pred?: (s: string) => boolean,
 ): string[];
 
 /**
@@ -39,7 +39,7 @@ export function getMultipleQueryParams(
 export function getMultipleQueryParams(
   query: ParsedUrlQuery,
   key: string,
-  pred: (s: string) => boolean = () => true
+  pred: (s: string) => boolean = () => true,
 ): string[] {
   const _value = query[key];
 

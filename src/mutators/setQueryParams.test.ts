@@ -5,7 +5,7 @@ describe("setQueryParams(other)(query)", () => {
   type Case = [
     params: Parameters<typeof setQueryParams>[0],
     query: ParsedUrlQuery,
-    result: ParsedUrlQuery
+    result: ParsedUrlQuery,
   ];
 
   it.each<Case>([

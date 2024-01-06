@@ -16,13 +16,13 @@ import { queryMutation, QueryMutation } from "./_internal/queryMutation";
  * ```
  */
 export const pushQueryParams = (
-  params: Record<string, string | string[] | undefined | null | 0 | false>
+  params: Record<string, string | string[] | undefined | null | 0 | false>,
 ): QueryMutation => {
   return queryMutation((query) =>
     Object.entries(params).reduce(
       (acc, [key, value]) => ({ ...acc, [key]: safeConcat(acc[key], value) }),
-      query
-    )
+      query,
+    ),
   );
 };
 
@@ -30,7 +30,7 @@ type ParamToAdd = Parameters<typeof pushQueryParams>[0][string];
 
 const safeConcat = (
   left: string | string[] | undefined,
-  right: ParamToAdd
+  right: ParamToAdd,
 ): string[] => [...toFlatArray(left), ...toFlatArray(right)];
 
 const toFlatArray = (v: ParamToAdd): string[] =>

@@ -23,7 +23,7 @@ export const isQueryEmpty = (
   query: ParsedUrlQuery,
   options: {
     ignore?: string | string[] | undefined | null;
-  } = {}
+  } = {},
 ) => {
   const keysToIgnore = toArrayKeysToIgnore(options.ignore);
   return Object.entries(query).every(([k, v]) => {
@@ -34,7 +34,7 @@ export const isQueryEmpty = (
 };
 
 const toArrayKeysToIgnore = (
-  ignore: string | string[] | null | undefined
+  ignore: string | string[] | null | undefined,
 ): string[] => {
   if (Array.isArray(ignore)) return ignore;
   if (!ignore) return [];

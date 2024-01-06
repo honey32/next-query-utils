@@ -5,7 +5,7 @@ describe("removeQueryParams(options)(query)", () => {
   type Case = [
     options: Parameters<typeof removeQueryParams>[0],
     query: ParsedUrlQuery,
-    result: ParsedUrlQuery
+    result: ParsedUrlQuery,
   ];
   it.each<Case>([
     [{}, {}, {}],

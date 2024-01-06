@@ -52,7 +52,7 @@ import { QueryMutation, queryMutation } from "./_internal/queryMutation";
  *
  */
 export const removeQueryParams = (
-  options: Record<string, string | string[] | true | false | undefined | null>
+  options: Record<string, string | string[] | true | false | undefined | null>,
 ): QueryMutation => {
   return queryMutation((query) =>
     Object.entries(options).reduce((acc, [key, pred]) => {
@@ -69,7 +69,7 @@ export const removeQueryParams = (
 
       // if single string (not empty)
       return { ...acc, [key]: predFn(value) ? value : [] };
-    }, query)
+    }, query),
   );
 };
 
