@@ -9,3 +9,19 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    groups:
+      eslint:
+        patterns:
+        - eslint
+        - eslint-*
+        - @typescript-eslint*
+      jest:
+        patterns:
+        - jest
+        - @types/jest
+        - ts-jest
+      parcel:
+        patterns:
+        - parcel
+        - @parcel/*
+
