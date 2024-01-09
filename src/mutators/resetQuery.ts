@@ -1,4 +1,4 @@
-import { queryMutation } from "./_internal/queryMutation";
+import { QueryMutation, queryMutation } from "./_internal/queryMutation";
 
 /**
  * Resets the query (into empty object).
@@ -33,7 +33,7 @@ export const resetQuery = (
       | (string | undefined | null | boolean | number)[]
       | undefined;
   } = {},
-) => {
+): QueryMutation => {
   const ignoredKeys = (() => {
     const { ignore } = options;
     if (!ignore) return [];
