@@ -1,6 +1,6 @@
 {
   "name": "next-query-utils",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
@@ -22,7 +22,9 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\"",
     "format": "prettier --write \"src/**/*.ts\"",
-    "docs": "typedoc --options typedoc.json",
+    "docs": "npm run docs:typedoc && npm run docs:search-console",
+    "docs:typedoc": "typedoc --options typedoc.json ",
+    "docs:search-console": "cpx \"docs//google5875bd5a5c911fdb.html\" dist-doc",
     "prepack": "npm-run-all -s check build"
   },
   "browserslist": [
@@ -56,6 +58,7 @@
     "@types/jest": "^29.5.11",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
     "@typescript-eslint/parser": "^6.17.0",
+    "cpx": "^1.5.0",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.0.0",
