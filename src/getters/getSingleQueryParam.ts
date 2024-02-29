@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 export function getSingleQueryParam<T extends string>(
   query: ParsedUrlQuery,
   key: string,
-  pred?: (s: string) => s is T,
+  pred: (s: string) => s is T,
 ): T | undefined;
 export function getSingleQueryParam(
   query: ParsedUrlQuery,
