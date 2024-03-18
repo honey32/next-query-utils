@@ -1,14 +1,14 @@
-import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
+import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 export function getSingleQueryParam<T extends string>(
-  query: ParsedUrlQuery,
-  key: string,
-  pred: (s: string) => s is T,
+	query: ParsedUrlQuery,
+	key: string,
+	pred: (s: string) => s is T,
 ): T | undefined;
 export function getSingleQueryParam(
-  query: ParsedUrlQuery,
-  key: string,
-  pred?: (s: string) => boolean,
+	query: ParsedUrlQuery,
+	key: string,
+	pred?: (s: string) => boolean,
 ): string | undefined;
 
 /**
@@ -36,15 +36,15 @@ export function getSingleQueryParam(
  * @param pred *optional*. the first value *that fits this predicate* will be returned.
  */
 export function getSingleQueryParam(
-  query: ParsedUrlQuery,
-  key: string,
-  pred: (s: string) => boolean = () => true,
+	query: ParsedUrlQuery,
+	key: string,
+	pred: (s: string) => boolean = () => true,
 ): string | undefined {
-  const _value = query[key];
+	const _value = query[key];
 
-  if (!_value) return undefined;
+	if (!_value) return undefined;
 
-  if (Array.isArray(_value)) return _value.filter(pred)[0];
+	if (Array.isArray(_value)) return _value.filter(pred)[0];
 
-  return pred(_value) ? _value : undefined;
+	return pred(_value) ? _value : undefined;
 }

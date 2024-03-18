@@ -1,4 +1,4 @@
-import { queryMutation, QueryMutation } from "./_internal/queryMutation";
+import { type QueryMutation, queryMutation } from "./_internal/queryMutation";
 
 /**
  * Appends given parameters.
@@ -16,22 +16,22 @@ import { queryMutation, QueryMutation } from "./_internal/queryMutation";
  * ```
  */
 export const pushQueryParams = (
-  params: Record<string, string | string[] | undefined | null | 0 | false>,
+	params: Record<string, string | string[] | undefined | null | 0 | false>,
 ): QueryMutation => {
-  return queryMutation((query) =>
-    Object.entries(params).reduce(
-      (acc, [key, value]) => ({ ...acc, [key]: safeConcat(acc[key], value) }),
-      query,
-    ),
-  );
+	return queryMutation((query) =>
+		Object.entries(params).reduce(
+			(acc, [key, value]) => ({ ...acc, [key]: safeConcat(acc[key], value) }),
+			query,
+		),
+	);
 };
 
 type ParamToAdd = Parameters<typeof pushQueryParams>[0][string];
 
 const safeConcat = (
-  left: string | string[] | undefined,
-  right: ParamToAdd,
+	left: string | string[] | undefined,
+	right: ParamToAdd,
 ): string[] => [...toFlatArray(left), ...toFlatArray(right)];
 
 const toFlatArray = (v: ParamToAdd): string[] =>
-  !v ? [] : typeof v === "string" ? [v] : v;
+	!v ? [] : typeof v === "string" ? [v] : v;

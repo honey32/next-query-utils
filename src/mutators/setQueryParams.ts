@@ -1,4 +1,4 @@
-import { QueryMutation, queryMutation } from "./_internal/queryMutation";
+import { type QueryMutation, queryMutation } from "./_internal/queryMutation";
 
 /**
  * Sets values of query parameters.
@@ -35,15 +35,15 @@ import { QueryMutation, queryMutation } from "./_internal/queryMutation";
  * ```
  */
 export const setQueryParams = (
-  params: Record<string, string | string[] | undefined | null | 0 | false>,
+	params: Record<string, string | string[] | undefined | null | 0 | false>,
 ): QueryMutation => {
-  return queryMutation((query) =>
-    Object.entries(params).reduce(
-      (acc, [key, value]) => ({
-        ...acc,
-        [key]: !value ? [] : value,
-      }),
-      query,
-    ),
-  );
+	return queryMutation((query) =>
+		Object.entries(params).reduce(
+			(acc, [key, value]) => ({
+				...acc,
+				[key]: !value ? [] : value,
+			}),
+			query,
+		),
+	);
 };

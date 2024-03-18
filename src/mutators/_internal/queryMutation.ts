@@ -1,7 +1,7 @@
-import { ParsedUrlQuery } from "../../types/ParsedUrlQuery";
+import type { ParsedUrlQuery } from "../../types/ParsedUrlQuery";
 
 export type QueryMutation = ((query: ParsedUrlQuery) => ParsedUrlQuery) & {
-  andThen(next: (query: ParsedUrlQuery) => ParsedUrlQuery): QueryMutation;
+	andThen(next: (query: ParsedUrlQuery) => ParsedUrlQuery): QueryMutation;
 };
 
 /**
@@ -13,11 +13,11 @@ export type QueryMutation = ((query: ParsedUrlQuery) => ParsedUrlQuery) & {
  *
  */
 export const queryMutation = (
-  fn: (query: ParsedUrlQuery) => ParsedUrlQuery,
+	fn: (query: ParsedUrlQuery) => ParsedUrlQuery,
 ): QueryMutation => {
-  type AndThen = Pick<QueryMutation, "andThen">;
+	type AndThen = Pick<QueryMutation, "andThen">;
 
-  return Object.assign(fn, {
-    andThen: (next) => queryMutation((query) => next(fn(query))),
-  } as AndThen);
+	return Object.assign(fn, {
+		andThen: (next) => queryMutation((query) => next(fn(query))),
+	} as AndThen);
 };

@@ -1,4 +1,4 @@
-import { QueryMutation, queryMutation } from "./_internal/queryMutation";
+import { type QueryMutation, queryMutation } from "./_internal/queryMutation";
 
 /**
  * By passing `({ key0: predicate0, key1: predicate1, ... })` style object,
@@ -52,25 +52,25 @@ import { QueryMutation, queryMutation } from "./_internal/queryMutation";
  *
  */
 export const removeQueryParams = (
-  options: Record<string, string | string[] | true | false | undefined | null>,
+	options: Record<string, string | string[] | true | false | undefined | null>,
 ): QueryMutation => {
-  return queryMutation((query) =>
-    Object.entries(options).reduce((acc, [key, pred]) => {
-      const value = acc[key];
+	return queryMutation((query) =>
+		Object.entries(options).reduce((acc, [key, pred]) => {
+			const value = acc[key];
 
-      // if empty, leave query as it is.
-      if (!value) return acc;
-      if (Array.isArray(value) && value.length === 0) return acc;
+			// if empty, leave query as it is.
+			if (!value) return acc;
+			if (Array.isArray(value) && value.length === 0) return acc;
 
-      const predFn = toFn(pred);
+			const predFn = toFn(pred);
 
-      // if array of string
-      if (Array.isArray(value)) return { ...acc, [key]: value.filter(predFn) };
+			// if array of string
+			if (Array.isArray(value)) return { ...acc, [key]: value.filter(predFn) };
 
-      // if single string (not empty)
-      return { ...acc, [key]: predFn(value) ? value : [] };
-    }, query),
-  );
+			// if single string (not empty)
+			return { ...acc, [key]: predFn(value) ? value : [] };
+		}, query),
+	);
 };
 
 type RemovingPredicate = Parameters<typeof removeQueryParams>[0][string];
@@ -81,8 +81,8 @@ type RemovingPredicate = Parameters<typeof removeQueryParams>[0][string];
  * @internal
  */
 const toFn = (p: RemovingPredicate): ((s: string) => boolean) => {
-  if (!p) return () => true;
-  if (p === true) return () => false;
-  if (Array.isArray(p)) return (s) => !p.includes(s);
-  return (s) => s !== p;
+	if (!p) return () => true;
+	if (p === true) return () => false;
+	if (Array.isArray(p)) return (s) => !p.includes(s);
+	return (s) => s !== p;
 };
