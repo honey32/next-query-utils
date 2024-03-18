@@ -1,5 +1,5 @@
+import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { getMultipleQueryParams } from "./getMultipleQueryParams";
-import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 describe("getMultipleQueryParams(key, pred)(query)", () => {
   type Case = [query: ParsedUrlQuery, result: string[]];

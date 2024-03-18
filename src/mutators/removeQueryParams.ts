@@ -1,4 +1,4 @@
-import { QueryMutation, queryMutation } from "./_internal/queryMutation";
+import { type QueryMutation, queryMutation } from "./_internal/queryMutation";
 
 /**
  * By passing `({ key0: predicate0, key1: predicate1, ... })` style object,

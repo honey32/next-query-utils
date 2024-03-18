@@ -1,5 +1,5 @@
+import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { getMultipleQueryParams } from "./getMultipleQueryParams";
-import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { getMultipleQueryParamsCurried } from "./getMultipleQueryParamsCurried";
 
 describe("getMultipleQueryParamsCurried(key, pred)(query)", () => {

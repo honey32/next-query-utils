@@ -1,5 +1,5 @@
+import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { setQueryParams } from "./setQueryParams";
-import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 describe("setQueryParams(other)(query)", () => {
   type Case = [

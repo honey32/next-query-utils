@@ -1,5 +1,5 @@
+import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { removeQueryParams } from "./removeQueryParams";
-import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 describe("removeQueryParams(options)(query)", () => {
   type Case = [

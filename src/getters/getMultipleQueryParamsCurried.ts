@@ -1,4 +1,4 @@
-import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
+import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { getMultipleQueryParams } from "./getMultipleQueryParams";
 
 export function getMultipleQueryParamsCurried<T extends string>(
