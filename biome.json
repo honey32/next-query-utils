@@ -18,7 +18,6 @@
     }
   },
   "formatter": {
-    "lineEnding": "crlf",
     "indentStyle": "space"
   }
 }
