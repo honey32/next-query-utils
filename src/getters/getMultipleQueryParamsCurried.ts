@@ -2,13 +2,13 @@ import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { getMultipleQueryParams } from "./getMultipleQueryParams";
 
 export function getMultipleQueryParamsCurried<T extends string>(
-	key: string,
-	pred: (s: string) => s is T,
+  key: string,
+  pred: (s: string) => s is T,
 ): (query: ParsedUrlQuery) => T[];
 
 export function getMultipleQueryParamsCurried(
-	key: string,
-	pred?: (s: string) => boolean,
+  key: string,
+  pred?: (s: string) => boolean,
 ): (query: ParsedUrlQuery) => string[];
 
 /**
@@ -22,8 +22,8 @@ export function getMultipleQueryParamsCurried(
  * ```
  */
 export function getMultipleQueryParamsCurried(
-	key: string,
-	pred?: (s: string) => boolean,
+  key: string,
+  pred?: (s: string) => boolean,
 ): (query: ParsedUrlQuery) => string[] {
-	return (query) => getMultipleQueryParams(query, key, pred);
+  return (query) => getMultipleQueryParams(query, key, pred);
 }

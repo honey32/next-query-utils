@@ -20,23 +20,23 @@ import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
  *
  */
 export const isQueryEmpty = (
-	query: ParsedUrlQuery,
-	options: {
-		ignore?: string | string[] | undefined | null;
-	} = {},
+  query: ParsedUrlQuery,
+  options: {
+    ignore?: string | string[] | undefined | null;
+  } = {},
 ) => {
-	const keysToIgnore = toArrayKeysToIgnore(options.ignore);
-	return Object.entries(query).every(([k, v]) => {
-		if (keysToIgnore.includes(k)) return true;
-		if (Array.isArray(v)) return v.length === 0;
-		return !v;
-	});
+  const keysToIgnore = toArrayKeysToIgnore(options.ignore);
+  return Object.entries(query).every(([k, v]) => {
+    if (keysToIgnore.includes(k)) return true;
+    if (Array.isArray(v)) return v.length === 0;
+    return !v;
+  });
 };
 
 const toArrayKeysToIgnore = (
-	ignore: string | string[] | null | undefined,
+  ignore: string | string[] | null | undefined,
 ): string[] => {
-	if (Array.isArray(ignore)) return ignore;
-	if (!ignore) return [];
-	return [ignore];
+  if (Array.isArray(ignore)) return ignore;
+  if (!ignore) return [];
+  return [ignore];
 };

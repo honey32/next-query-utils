@@ -3,13 +3,13 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Language and Environment */
-    "target": "es2019", 
+    "target": "es2019",
 
     /* Modules */
-    "module": "commonjs", 
+    "module": "commonjs",
 
     /* Interop Constraints */
-    "esModuleInterop": true,                            
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 
     /* Type Checking */

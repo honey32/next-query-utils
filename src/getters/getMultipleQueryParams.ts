@@ -1,14 +1,14 @@
 import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 export function getMultipleQueryParams<T extends string>(
-	query: ParsedUrlQuery,
-	key: string,
-	pred?: (s: string) => s is T,
+  query: ParsedUrlQuery,
+  key: string,
+  pred?: (s: string) => s is T,
 ): T[];
 export function getMultipleQueryParams(
-	query: ParsedUrlQuery,
-	key: string,
-	pred?: (s: string) => boolean,
+  query: ParsedUrlQuery,
+  key: string,
+  pred?: (s: string) => boolean,
 ): string[];
 
 /**
@@ -37,15 +37,15 @@ export function getMultipleQueryParams(
  * @param pred *optional*. the values *that fit this predicate* will be returned.
  */
 export function getMultipleQueryParams(
-	query: ParsedUrlQuery,
-	key: string,
-	pred: (s: string) => boolean = () => true,
+  query: ParsedUrlQuery,
+  key: string,
+  pred: (s: string) => boolean = () => true,
 ): string[] {
-	const _value = query[key];
+  const _value = query[key];
 
-	if (!_value) return [];
+  if (!_value) return [];
 
-	if (Array.isArray(_value)) return _value.filter(pred);
+  if (Array.isArray(_value)) return _value.filter(pred);
 
-	return pred(_value) ? [_value] : [];
+  return pred(_value) ? [_value] : [];
 }

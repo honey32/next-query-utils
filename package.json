@@ -9,9 +9,7 @@
   "directories": {
     "test": "tests"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "prepare": "npm-run-all -s setup:*",
     "setup:simple-git-hooks": "simple-git-hooks",
@@ -26,17 +24,9 @@
     "docs:search-console": "cpx \"docs//google5875bd5a5c911fdb.html\" dist-doc",
     "prepack": "npm-run-all -s check build"
   },
-  "browserslist": [
-    "> 0.5% and not dead",
-    "IE 11"
-  ],
+  "browserslist": ["> 0.5% and not dead", "IE 11"],
   "simple-git-hooks": {},
-  "keywords": [
-    "nextjs",
-    "url",
-    "utilities",
-    "utils"
-  ],
+  "keywords": ["nextjs", "url", "utilities", "utils"],
   "author": "honey32",
   "license": "MIT",
   "repository": {

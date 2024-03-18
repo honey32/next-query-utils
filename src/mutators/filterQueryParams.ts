@@ -23,21 +23,21 @@ import { type QueryMutation, queryMutation } from "./_internal/queryMutation";
  * ```
  */
 export const filterQueryParams = (
-	key: string,
-	pred: (s: string) => boolean,
-	options: { limit?: number } = {},
+  key: string,
+  pred: (s: string) => boolean,
+  options: { limit?: number } = {},
 ): QueryMutation => {
-	const { limit = undefined } = options;
+  const { limit = undefined } = options;
 
-	return queryMutation((query) => {
-		const _value = query[key];
-		if (!_value) return query;
+  return queryMutation((query) => {
+    const _value = query[key];
+    if (!_value) return query;
 
-		const value: string[] = typeof _value === "string" ? [_value] : _value;
+    const value: string[] = typeof _value === "string" ? [_value] : _value;
 
-		type Predicate<V> = Parameters<Array<V>["filter"]>[0];
-		const limitter: Predicate<string> =
-			limit === undefined ? () => true : (_, index) => index < limit;
-		return { ...query, [key]: value.filter(pred).filter(limitter) };
-	});
+    type Predicate<V> = Parameters<Array<V>["filter"]>[0];
+    const limitter: Predicate<string> =
+      limit === undefined ? () => true : (_, index) => index < limit;
+    return { ...query, [key]: value.filter(pred).filter(limitter) };
+  });
 };

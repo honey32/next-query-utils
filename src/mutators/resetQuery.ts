@@ -23,30 +23,30 @@ import { type QueryMutation, queryMutation } from "./_internal/queryMutation";
  * ```
  */
 export const resetQuery = (
-	options: {
-		/**
-		 * keys not to delete.
-		 * Falsy value or `true` will be discarded.
-		 */
-		ignore?:
-			| string
-			| (string | undefined | null | boolean | number)[]
-			| undefined;
-	} = {},
+  options: {
+    /**
+     * keys not to delete.
+     * Falsy value or `true` will be discarded.
+     */
+    ignore?:
+      | string
+      | (string | undefined | null | boolean | number)[]
+      | undefined;
+  } = {},
 ): QueryMutation => {
-	const ignoredKeys = (() => {
-		const { ignore } = options;
-		if (!ignore) return [];
-		if (Array.isArray(ignore))
-			return ignore.filter((k): k is string => !!k && k !== true);
-		return [ignore];
-	})();
+  const ignoredKeys = (() => {
+    const { ignore } = options;
+    if (!ignore) return [];
+    if (Array.isArray(ignore))
+      return ignore.filter((k): k is string => !!k && k !== true);
+    return [ignore];
+  })();
 
-	return queryMutation((q) => {
-		const entries = ignoredKeys
-			.map((key) => [key, q[key]] as const)
-			.filter(([k, v]) => !!v);
+  return queryMutation((q) => {
+    const entries = ignoredKeys
+      .map((key) => [key, q[key]] as const)
+      .filter(([k, v]) => !!v);
 
-		return Object.fromEntries(entries);
-	});
+    return Object.fromEntries(entries);
+  });
 };
