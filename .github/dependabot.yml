@@ -11,16 +11,6 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 20
     groups:
-      eslint:
-        patterns:
-        - eslint
-        - eslint-*
-        - '@typescript-eslint*'
-      jest:
-        patterns:
-        - jest
-        - '@types/jest'
-        - ts-jest
       parcel:
         patterns:
         - parcel
