@@ -1,3 +1,5 @@
+import { describe, expect, it } from "vitest";
+
 import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { getMultipleQueryParams } from "./getMultipleQueryParams";
 import { getMultipleQueryParamsCurried } from "./getMultipleQueryParamsCurried";
