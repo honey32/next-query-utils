@@ -1,5 +1,7 @@
+import { describe, expect, it } from "vitest";
+
+import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { resetQuery } from "./resetQuery";
-import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 describe("resetQuery(options)(query)", () => {
   type Case = [

@@ -1,5 +1,7 @@
+import { describe, expect, it } from "vitest";
+
+import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { filterQueryParams } from "./filterQueryParams";
-import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 describe("filterQueryParams(options)(query)", () => {
   type Case = [

@@ -1,12 +1,8 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": [
-    "./src"
-  ],
+  "entryPoints": ["./src"],
   "out": "dist-doc",
-  "sort": [
-    "source-order"
-  ],
+  "sort": ["source-order"],
   "includeVersion": true,
   "customCss": "./docs/theme.css",
   "media": "media"

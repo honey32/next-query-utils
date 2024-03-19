@@ -1,3 +1,5 @@
+import { describe, expect, it } from "vitest";
+
 import { isQueryEmpty } from "./isQueryEmpty";
 
 type Case = Parameters<typeof isQueryEmpty>;

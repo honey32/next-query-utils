@@ -1,5 +1,7 @@
+import { describe, expect, it } from "vitest";
+
+import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { pushQueryParams } from "./pushQueryParams";
-import { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 
 describe("pushQueryParams(params)", () => {
   type Params = Parameters<typeof pushQueryParams>[0];

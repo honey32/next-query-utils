@@ -1,4 +1,4 @@
-import { QueryMutation, queryMutation } from "./_internal/queryMutation";
+import { type QueryMutation, queryMutation } from "./_internal/queryMutation";
 
 /**
  * Sets values of query parameters.

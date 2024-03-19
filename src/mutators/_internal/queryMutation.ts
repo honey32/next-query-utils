@@ -1,4 +1,4 @@
-import { ParsedUrlQuery } from "../../types/ParsedUrlQuery";
+import type { ParsedUrlQuery } from "../../types/ParsedUrlQuery";
 
 export type QueryMutation = ((query: ParsedUrlQuery) => ParsedUrlQuery) & {
   andThen(next: (query: ParsedUrlQuery) => ParsedUrlQuery): QueryMutation;
