@@ -1,3 +1,5 @@
+import { expect, it, describe } from "vitest";
+
 import type { ParsedUrlQuery } from "../types/ParsedUrlQuery";
 import { pushQueryParams } from "./pushQueryParams";
 

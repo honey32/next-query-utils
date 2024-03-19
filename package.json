@@ -13,7 +13,7 @@
   "scripts": {
     "prepare": "npm-run-all -s setup:*",
     "setup:simple-git-hooks": "simple-git-hooks",
-    "test": "jest",
+    "test": "vitest",
     "watch": "parcel watch",
     "check": "tsc --noEmit",
     "build": "parcel build",
