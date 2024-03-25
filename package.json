@@ -26,6 +26,7 @@
   },
   "browserslist": ["> 0.5% and not dead", "IE 11"],
   "simple-git-hooks": {
+    "commit-msg": "npx commitlint -e",
     "pre-push": "npm run lint && npm run check"
   },
   "keywords": ["nextjs", "url", "utilities", "utils"],
