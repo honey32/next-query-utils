@@ -25,7 +25,10 @@
     "prepack": "npm-run-all -s check build"
   },
   "browserslist": ["> 0.5% and not dead", "IE 11"],
-  "simple-git-hooks": {},
+  "simple-git-hooks": {
+    "commit-msg": "npx commitlint -e",
+    "pre-push": "npm run lint && npm run check"
+  },
   "keywords": ["nextjs", "url", "utilities", "utils"],
   "author": "honey32",
   "license": "MIT",
@@ -35,6 +38,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.2",
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
     "@parcel/packager-ts": "^2.5.0",
     "@parcel/transformer-typescript-types": "^2.5.0",
     "cpx": "^1.5.0",
