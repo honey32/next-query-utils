@@ -37,7 +37,7 @@
     "url": "git@github.com:honey32/next-query-utils.git"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.6.2",
+    "@biomejs/biome": "1.6.3",
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
     "@parcel/packager-ts": "^2.5.0",
