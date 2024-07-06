@@ -21,7 +21,7 @@
     "fix": "biome check --apply .",
     "docs": "npm-run-all -s docs:typedoc docs:search-console",
     "docs:typedoc": "typedoc --options typedoc.json ",
-    "docs:search-console": "cpx \"docs//google5875bd5a5c911fdb.html\" dist-doc",
+    "docs:search-console": "node ./scripts/copy.mjs --source docs/google5875bd5a5c911fdb.html --outDir dist-doc",
     "prepack": "npm-run-all -s check build"
   },
   "browserslist": ["> 0.5% and not dead", "IE 11"],
@@ -42,7 +42,6 @@
     "@commitlint/config-conventional": "^19.1.0",
     "@parcel/packager-ts": "^2.5.0",
     "@parcel/transformer-typescript-types": "^2.5.0",
-    "cpx": "^1.5.0",
     "npm-run-all2": "^6.1.2",
     "parcel": "^2.9.3",
     "simple-git-hooks": "^2.7.0",
