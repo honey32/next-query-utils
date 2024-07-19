@@ -1,1 +1,0 @@
-export { isQueryEmpty } from "./isQueryEmpty";
