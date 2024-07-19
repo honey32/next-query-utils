@@ -1,6 +1,6 @@
 {
   "name": "@honey32/next-query-utils",
-  "version": "2.0.0-alplha.1",
+  "version": "2.0.0-alplha.2",
   "exports": {
     ".": "./index.ts",
     "./getters": "./getters/index.ts",
