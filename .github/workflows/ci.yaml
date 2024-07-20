@@ -2,9 +2,9 @@ name: CI (using deno)
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ v2 ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ v2 ]
 
 jobs:
   build:
