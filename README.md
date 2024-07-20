@@ -1,7 +1,12 @@
 # Next Query Utils
 
-[![npm version](https://badge.fury.io/js/next-query-utils.svg)](https://badge.fury.io/js/next-query-utils)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> [!NOTE]
+> 
+> This lib no longer updates *in npm*. latest: [![npm version](https://badge.fury.io/js/next-query-utils.svg)](https://badge.fury.io/js/next-query-utils)
+> 
+> Instead, use [JSR where it's published as v2.x or later](https://jsr.io/@honey32/next-query-utils)
 
 This library provides utility functions to deal with **Parsed Query Objects** (especially of Next.js)
 
