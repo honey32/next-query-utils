@@ -9,5 +9,5 @@
   },
   "prettier.enable": false,
   "eslint.enable": false,
-  "biome.enabled": false,
+  "biome.enabled": false
 }
