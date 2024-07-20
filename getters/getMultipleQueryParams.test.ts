@@ -25,7 +25,6 @@ describe("getMultipleQueryParams(key, pred)(query)", () => {
     [{ key: ["b"] }, []],
     [{ key: ["b", "c"] }, []],
   ] satisfies Case[]).forEach(([query, result]) => {
-    //('(%p, "key", (s) => s === "a") === %s', (query, result) => {
     it(`(${JSON.stringify(query)}, "key", (s) => s === "a") === ${JSON.stringify(result)}`, () => {
       assertEquals(
         getMultipleQueryParams(query, "key", (s) => s === "a"),
