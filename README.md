@@ -16,19 +16,14 @@ This library provides utility functions to deal with **Parsed Query Objects**
 このライブラリには、**Parsed Query Object** （特に Next.js
 のもの）を取り扱うためのユーティリティ関数群が含まれます。
 
-## Links &mdash; リンク集
+## Migration from v1 to v2
 
-- [API Documentions &mdash; APIドキュメント](https://honey32.github.io/next-query-utils/)
+As the only difference; v2 is provided as
+[`@honey32/next-query-utils` via JSR](https://jsr.io/@honey32/next-query-utils),
+while v1 as `next-query-utils` via npm.
 
-# Install
-
-```sh
-// with npm
-npm i next-query-utils
-
-// with yarn
-yarn add next-query-utils
-```
+When you try to migrate from npm to JSR, see:
+https://jsr.io/docs/npm-compatibility
 
 # Usages &mdash; 使い方
 
