@@ -1,0 +1,5 @@
+# for previous version's outputs and generated files (npm / percel / typedoc)
+dist-doc
+.parcel-cache
+dist
+node_modules
