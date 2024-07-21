@@ -4,6 +4,5 @@
   "out": "dist-doc",
   "sort": ["source-order"],
   "includeVersion": true,
-  "customCss": "./docs/theme.css",
-  "media": "media"
+  "customCss": "./docs/theme.css"
 }
